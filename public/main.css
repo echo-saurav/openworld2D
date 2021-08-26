@@ -1,0 +1,46 @@
+body {
+  background-color: beige;
+}
+
+.center_box {
+  width: 60%;
+  border: 3px solid #73ad21;
+  padding: 10px;
+
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 100px;
+
+  text-align: center;
+}
+
+.center_box h1 {
+  color: #0c093c;
+}
+
+.play_button svg {
+  width: 50px;
+  transform: rotate(0deg);
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* For mobile phones: */
+
+.play_button svg:active {
+  transform: rotate(60deg);
+}
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+  .play_button svg:active {
+    transform: rotate(60deg);
+  }
+}
+
+/* For tablets: */
+@media only screen and (min-width: 768px) {
+  .play_button svg:hover {
+    transform: rotate(60deg);
+  }
+}
