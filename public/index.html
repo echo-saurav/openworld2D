@@ -5,18 +5,18 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Openworld2D</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css?v=1.8'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
 
 </head>
 <body>
     <div class="center_box">
         <h1>Openworld2D</h1>
-        <div class="play_button">
+        <div class="play_button" onclick="startGame()">
 
             <?xml version="1.0" encoding="iso-8859-1"?>
             <!-- <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
-
             <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -38,5 +38,12 @@
     <p>Feel free to send <a href="https://www.facebook.com/saurav109/">me</a> any recomendation or bug report</p>        
 </div>
 
+<script>
+    function startGame(){
+        console.log("starting game screen")
+        window.location.href = 'game.html'
+    }
+
+</script>
 </body>
 </html>
