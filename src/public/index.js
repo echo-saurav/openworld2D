@@ -90,7 +90,7 @@ function preload() {
     // preload screen end
     this.load.image("mario-tiles", "./assets/overworld.png");
     // this.load.tilemapTiledJSON("map", "./assets/map.json");
-    this.load.tilemapTiledJSON("map", "./assets/testMap.json");
+    this.load.tilemapTiledJSON("map", "./assets/overworldMap.json");
     this.load.atlas(
       "atlas",
       "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png",
@@ -112,6 +112,11 @@ function create() {
   const aboveLayer = map.createLayer("above", tileset, 0, 0);
 
   worldLayer.setCollisionByProperty({ collides: true });
+
+  // By default, everything gets depth sorted on the screen in the order we created things. Here, we
+  // want the "Above Player" layer to sit on top of the player, so we explicitly give it a depth.
+  // Higher depths will sit on top of lower depth objects.
+  aboveLayer.setDepth(10);
   //
   // Phaser supports multiple cameras, but you can access the default camera like this:
   // const camera = this.cameras.main;
@@ -206,15 +211,28 @@ function create() {
   cursors = this.input.keyboard.createCursorKeys();
 
   // Help text that has a "fixed" position on the screen
-  this.add
-    .text(16, 16, 'Arrow keys to move\nPress "D" to show hitboxes', {
-      font: "18px monospace",
-      fill: "#000000",
-      padding: { x: 20, y: 10 },
-      backgroundColor: "#ffffff",
-    })
+  const screenCenterX =
+    this.cameras.main.worldView.x + this.cameras.main.width / 2;
+  const screenCenterY =
+    this.cameras.main.worldView.y + this.cameras.main.height / 2;
+  const text = this.add
+    .text(
+      screenCenterX,
+      screenCenterY,
+      'Arrow keys to move\nPress "D" to show hitboxes',
+      {
+        x: 100,
+        y: 100,
+        font: "18px monospace",
+        fill: "#000000",
+        padding: { x: 20, y: 10 },
+        backgroundColor: "#ffffff",
+      }
+    )
     .setScrollFactor(0)
     .setDepth(30);
+  text.x = Math.round(text.width * 0.5) / text.width;
+  text.y = Math.round(text.height * 0.5) / text.height;
 
   // Debug graphics
   this.input.keyboard.once("keydown-D", (event) => {
