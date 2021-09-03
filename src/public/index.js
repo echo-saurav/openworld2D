@@ -27,11 +27,14 @@ function preload() {
   // preload start
   var progressBar = this.add.graphics();
   var progressBox = this.add.graphics();
-  progressBox.fillStyle(0x222222, 0.8);
-  progressBox.fillRect(240, 270, 320, 50);
 
   var width = this.cameras.main.width;
   var height = this.cameras.main.height;
+
+  progressBox.fillStyle(0x222222, 0.8);
+  // progressBox.fillRect(240, 270, 320, 50);
+  progressBox.fillRect(width / 2, height / 2, 320, 50);
+
   var loadingText = this.make.text({
     x: width / 2,
     y: height / 2 - 50,
@@ -83,15 +86,17 @@ function preload() {
     assetText.destroy();
   });
 
-  // preload screen end
-  this.load.image("mario-tiles", "./assets/overworld.png");
-  // this.load.tilemapTiledJSON("map", "./assets/map.json");
-  this.load.tilemapTiledJSON("map", "./assets/testMap.json");
-  this.load.atlas(
-    "atlas",
-    "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png",
-    "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json"
-  );
+  for (var i = 0; i < 10000; i++) {
+    // preload screen end
+    this.load.image("mario-tiles", "./assets/overworld.png");
+    // this.load.tilemapTiledJSON("map", "./assets/map.json");
+    this.load.tilemapTiledJSON("map", "./assets/testMap.json");
+    this.load.atlas(
+      "atlas",
+      "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png",
+      "https://mikewesthad.github.io/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json"
+    );
+  }
 }
 
 function create() {
