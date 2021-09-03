@@ -2,10 +2,10 @@
   "name": "openworld2d",
   "version": "1.0.0",
   "description": "This is a test for multiplayer openworld game",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/echo-saurav/openworld2D#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
